@@ -30,7 +30,7 @@ Case : We displaying only 5 Image Indicator max, even if the images count is gre
 
 Setting the Layout for insetForSectionAt for collectionview .
 
-func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
         if collectionView == collectionViewPageControl {
             let imageCount = imagesArray.count ?? 0
@@ -56,9 +56,10 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
+
 //MARK: Setting cell for row for both collection view, one for image slider, another is for custom Page Control .
 
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if(collectionView == collectionView_slider){
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SliderCollectionViewCell", for: indexPath) as! SliderCollectionViewCell
             
@@ -69,7 +70,6 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
             return cell
         }
         if(collectionView == collectionViewPageControl){
-            // Custom Page Control
             if(indexPath.row == currentSlider){
                 let cellPageControl = collectionViewPageControl.dequeueReusableCell(withReuseIdentifier: "PageControlCollectionViewCell", for: indexPath) as! PageControlCollectionViewCell
                 let imageCount = imagesArray.count ?? 0
@@ -90,7 +90,7 @@ func collectionView(_ collectionView: UICollectionView, layout collectionViewLay
 
 Function for getting the page Index and reload the collection view. 
 
-func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.x
         self.pageControl.currentPage = Int(offset / collectionView_slider.frame.size.width)
         

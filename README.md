@@ -1,4 +1,4 @@
-# OnboardSliderScreen
+# OnboardSlider Screen with Custom Page Control for Image Slideshow
 OnboardSliderScreen is to provide a onboard screen with extended dot and extended images.
 
 It also have custom Page Control without using Page Control element in iOS . 
